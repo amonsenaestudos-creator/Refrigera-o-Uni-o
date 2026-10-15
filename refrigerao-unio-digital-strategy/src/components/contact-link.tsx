@@ -1,6 +1,7 @@
 "use client";
 
 import type { AnchorHTMLAttributes, ReactNode } from "react";
+import { assetUrl, isStaticExport } from "@/lib/paths";
 
 type ContactEvent =
   | "phone_click"
@@ -34,6 +35,10 @@ export function ContactLink({ eventName, placement, onClick, children, ...props 
   function trackClick(event: React.MouseEvent<HTMLAnchorElement>) {
     onClick?.(event);
 
+    // No site estático (GitHub Pages) não existe servidor nem banco de dados
+    // para receber os cliques: o link funciona normalmente, sem medição.
+    if (isStaticExport) return;
+
     const payload = JSON.stringify({
       eventName,
       placement: placement.slice(0, 80),
@@ -41,12 +46,14 @@ export function ContactLink({ eventName, placement, onClick, children, ...props 
       pagePath: window.location.pathname.slice(0, 160),
     });
 
+    const endpoint = assetUrl("/api/events");
+
     if (navigator.sendBeacon) {
-      navigator.sendBeacon("/api/events", new Blob([payload], { type: "application/json" }));
+      navigator.sendBeacon(endpoint, new Blob([payload], { type: "application/json" }));
       return;
     }
 
-    void fetch("/api/events", {
+    void fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: payload,

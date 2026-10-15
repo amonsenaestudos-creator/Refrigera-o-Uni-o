@@ -231,13 +231,15 @@ Valores são faixas de planejamento e devem ser confirmados antes da contrataç�
 
 Primeira versão econômica recomendada: domínio, hospedagem de baixo custo compatível com uso comercial, banco de baixo volume, ferramentas gratuitas e nenhuma mídia paga até validar regiões e conversão orgânica.
 
+Alternativa sem custo para o início: a versão estática publicada no GitHub Pages (`https://amonsenaestudos-creator.github.io/Refrigera-o-Uni-o/`). Ela não usa banco de dados, portanto não gera relatório de cliques; o acompanhamento é feito apenas pelo registro de ligações. A hospedagem com servidor e banco continua disponível no mesmo repositório quando o relatório for considerado necessário.
+
 ## 10. Tarefas mensais de manutenção
 
 - Testar o botão de telefone em Android e iPhone.
 - Conferir horário, serviços, telefone e área no site/Google/Instagram.
 - Publicar oito conteúdos principais e fotos reais quando disponíveis.
 - Responder avaliações e mensagens sem prometer o que não foi confirmado.
-- Exportar o relatório do site e comparar com o registro de ligações.
+- Exportar o relatório do site e comparar com o registro de ligações (na versão com servidor; no GitHub Pages o acompanhamento usa apenas o registro de ligações).
 - Atualizar dependências e backup com o responsável técnico.
 - Rever parcerias que efetivamente trouxeram ligações.
 

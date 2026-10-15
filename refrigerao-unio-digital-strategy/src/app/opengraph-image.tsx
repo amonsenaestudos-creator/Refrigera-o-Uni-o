@@ -1,5 +1,8 @@
 import { ImageResponse } from "next/og";
 
+// Necessário para a exportação estática (GitHub Pages) e inofensivo no modo servidor.
+export const dynamic = "force-static";
+
 export const alt = "Refrigeração União — conserto de geladeiras, freezers e máquinas de lavar";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

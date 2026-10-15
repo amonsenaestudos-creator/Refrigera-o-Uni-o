@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
 
+// Necessário para a exportação estática (GitHub Pages) e inofensivo no modo servidor.
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Refrigeração União",
