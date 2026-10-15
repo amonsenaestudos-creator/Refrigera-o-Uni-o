@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetUrl } from "@/lib/paths";
 import { siteConfig } from "@/lib/site";
 import { ArrowIcon, CheckIcon, MapPinIcon, PhoneIcon } from "./icons";
 import { PhoneButton } from "./phone-button";
@@ -34,9 +35,9 @@ export function HeroSection() {
           </div>
           <div className="appliance-stage">
             <div className="stage-glow" />
-            <Image className="hero-appliance hero-fridge" src="/illustrations/geladeira.svg" alt="Ilustração de geladeira" width={560} height={420} priority />
-            <Image className="hero-appliance hero-freezer" src="/illustrations/freezer.svg" alt="Ilustração de freezer" width={560} height={420} priority />
-            <Image className="hero-appliance hero-washer" src="/illustrations/lavadora.svg" alt="Ilustração de máquina de lavar" width={560} height={420} priority />
+            <Image className="hero-appliance hero-fridge" src={assetUrl("/illustrations/geladeira.svg")} alt="Ilustração de geladeira" width={560} height={420} priority />
+            <Image className="hero-appliance hero-freezer" src={assetUrl("/illustrations/freezer.svg")} alt="Ilustração de freezer" width={560} height={420} priority />
+            <Image className="hero-appliance hero-washer" src={assetUrl("/illustrations/lavadora.svg")} alt="Ilustração de máquina de lavar" width={560} height={420} priority />
           </div>
           <div className="hero-callout">
             <span className="callout-icon"><MapPinIcon width={23} height={23} /></span>

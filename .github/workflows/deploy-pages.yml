@@ -1,0 +1,71 @@
+name: Publicar site no GitHub Pages
+
+# O site publicado é a versão estática gerada por `npm run build:pages`
+# (pasta `out/`). O GitHub Pages entrega apenas arquivos prontos: ele não
+# executa Node nem PostgreSQL, então as rotas /api ficam fora dessa versão.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Gerar site estático
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: refrigerao-unio-digital-strategy/package-lock.json
+
+      - name: Instalar dependências
+        working-directory: refrigerao-unio-digital-strategy
+        run: npm ci
+
+      - name: Gerar a versão estática
+        working-directory: refrigerao-unio-digital-strategy
+        run: npm run build:pages
+        env:
+          # Se o repositório for renomeado, atualize as duas linhas abaixo.
+          NEXT_PUBLIC_SITE_URL: https://amonsenaestudos-creator.github.io/Refrigera-o-Uni-o
+          NEXT_PUBLIC_BASE_PATH: /Refrigera-o-Uni-o
+          NEXT_PUBLIC_STATIC_EXPORT: "true"
+
+      - name: Evitar processamento do Jekyll
+        working-directory: refrigerao-unio-digital-strategy
+        run: touch out/.nojekyll
+
+      - name: Configurar o Pages
+        uses: actions/configure-pages@v5
+
+      - name: Empacotar o site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: refrigerao-unio-digital-strategy/out
+
+  deploy:
+    name: Publicar
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacao.outputs.page_url }}
+    steps:
+      - name: Enviar para o GitHub Pages
+        id: publicacao
+        uses: actions/deploy-pages@v4

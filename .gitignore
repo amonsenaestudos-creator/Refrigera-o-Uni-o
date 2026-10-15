@@ -1,0 +1,27 @@
+# Dependências
+node_modules/
+
+# Build do Next.js
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Pasta temporária usada durante a geração do site estático (GitHub Pages)
+.api-parked-for-static-build/
+
+# Variáveis de ambiente — nunca versionar
+.env
+.env.local
+.env.*.local
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*

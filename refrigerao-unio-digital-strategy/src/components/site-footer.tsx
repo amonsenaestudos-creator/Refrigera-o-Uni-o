@@ -1,3 +1,4 @@
+import { assetUrl, isStaticExport } from "@/lib/paths";
 import { siteConfig } from "@/lib/site";
 import { ContactLink } from "./contact-link";
 import { GoogleIcon, InstagramIcon, PhoneIcon } from "./icons";
@@ -28,11 +29,16 @@ export function SiteFooter() {
           <p>{siteConfig.serviceArea}</p>
           <p>Referência: {siteConfig.referenceCity}</p>
           <p>Não há atendimento ao público no local de trabalho. Ligue antes.</p>
+          <a href={assetUrl("/privacidade/")} className="footer-link">Política de privacidade</a>
         </div>
       </div>
       <div className="container footer-bottom">
         <p>© {new Date().getFullYear()} Refrigeração União.</p>
-        <p>Medição anônima de cliques, sem formulários e sem cookies de publicidade.</p>
+        <p>
+          {isStaticExport
+            ? "Site estático, sem formulários e sem cookies de publicidade."
+            : "Medição anônima de cliques, sem formulários e sem cookies de publicidade."}
+        </p>
       </div>
     </footer>
   );
