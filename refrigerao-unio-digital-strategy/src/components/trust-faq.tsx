@@ -1,4 +1,4 @@
-import { siteConfig } from "@/lib/site";
+import { brands, siteConfig } from "@/lib/site";
 import { ContactLink } from "./contact-link";
 import { ArrowIcon, ChevronIcon, GoogleIcon, InstagramIcon, ShieldIcon } from "./icons";
 
@@ -6,6 +6,10 @@ export const faqs = [
   {
     question: "Quais aparelhos vocês consertam?",
     answer: "A Refrigeração União divulga conserto de geladeiras, freezers e máquinas de lavar. Para confirmar o atendimento ao seu modelo e problema, ligue antes.",
+  },
+  {
+    question: "Vocês consertam a marca do meu aparelho?",
+    answer: `O site divulga conserto para ${brands.join(", ")} — as marcas nacionais mais comuns. Para confirmar outros fabricantes, o seu modelo e a disponibilidade de peças, ligue para ${siteConfig.phoneDisplay}.`,
   },
   {
     question: "Em quais cidades vocês atendem?",
