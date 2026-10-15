@@ -40,6 +40,19 @@ export const services = [
   },
 ] as const;
 
+// Marcas divulgadas na seção "Marcas atendidas" do site.
+// Confirme sempre com o proprietário antes de adicionar ou remover nomes:
+// o projeto não publica informação sem comprovação (veja a seção Confiança).
+export const brands = [
+  "Brastemp",
+  "Consul",
+  "Electrolux",
+  "Samsung",
+  "LG",
+  "Panasonic",
+  "Midea",
+] as const;
+
 export function getSiteUrl() {
   const value = process.env.NEXT_PUBLIC_SITE_URL?.trim();
   return value ? value.replace(/\/$/, "") : "http://localhost:3000";

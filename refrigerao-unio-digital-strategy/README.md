@@ -125,3 +125,8 @@ O relatório retorna cliques por tipo, dia e origem nos últimos 30 dias. Um cli
 - Agenda, orçamento automático, pagamentos e chatbot: desnecessários para a operação atual.
 
 Veja o plano de divulgação completo em `docs/ESTRATEGIA-MARKETING.md`.
+
+## Guias passo a passo
+
+- `docs/GUIA-INDEXACAO-GOOGLE.md` — do zero ao site indexado: Search Console, sitemap, indexação e Perfil da Empresa. **É a etapa que decide quem aparece no Google** (domínio sem indexação não vale nada).
+- `docs/GUIA-DOMINIO-PROPRIO.md` — escolher, registrar e publicar o site em um domínio próprio `.com.br` com DNS e HTTPS no GitHub Pages.

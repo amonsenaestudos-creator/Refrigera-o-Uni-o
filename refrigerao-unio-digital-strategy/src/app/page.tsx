@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BrandsSection } from "@/components/brands-section";
 import { ContactSection } from "@/components/contact-section";
 import { HeroSection } from "@/components/hero-section";
 import { AreaSection, ProcessSection, ServicesSection } from "@/components/services-process";
@@ -63,6 +64,7 @@ export default function HomePage() {
       <main id="conteudo">
         <HeroSection />
         <ServicesSection />
+        <BrandsSection />
         <ProcessSection />
         <AreaSection />
         <TrustSection />
